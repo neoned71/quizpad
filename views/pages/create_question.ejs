@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>N71</title>
+  <script>
+    userId= "<%= user._id %>";
+  </script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="google-signin-client_id" content="567112201060-i34emibvl8p17rrgh1trctlgvn8n2o19.apps.googleusercontent.com"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="js/main.js" defer ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class=" w3-white">
+
+  <nav class="w3-row w3-white w3-border">
+    <div class="w3-half w3-text-blue w3-big" style="">	
+      <h3 class="w3-margin w3-button" onclick="location.href='/'">QUIZ<span class="w3-text-gray w3-small">pad</span></h3>
+    </div>
+    <div class="w3-quarter">
+      <p class="w3-font w3-center w3-margin w3-big"><span class="w3-text-gray w3-small">Hello</span> <%= user.name %></p>
+      
+    </div>
+
+  </nav>
+
+  
+  
+	<div class=" w3-text-gray w3-white w3-center w3-round  w3-border" style="width:80%;margin-left:auto;margin-right:auto;margin-top:20px">	
+    <h4 class="w3-margin">Add a Question...</h4>
+    <input id="text" type="text" class="w3-card w3-margin w3-padding w3-center" style='width:70%' placeholder="Question..."></textarea>
+    <br>
+   <div class="w3-center w3-margin w3-padding">
+    <% for(var i = 1; i<5;i++){ %>
+      <div class="w3-row" style="width: 100%;">
+        <div class="w3-threequarter"><input id="op<%= i %>t" type="text" class="w3-card w3-round w3-border w3-input w3-margin w3-padding w3-center" width="100%;" placeholder="Option <%= i %>">
+        </div>
+        <div class="w3-quarter">
+          Is Correct?<input id="op<%= i %>c" type="checkbox" class="w3-card w3-input w3-margin w3-padding w3-left"></div>
+      </div>
+      
+      <br>
+
+      <% } %>
+    </div>
+    <div class="w3-center">
+    
+      <button class="w3-button w3-round w3-border w3-margin w3-white w3-hover-green w3-hover-text-white" onclick="createQuestion();">
+        
+        <span class=" w3-small ">Create</span> Question
+      </button>
+    </div>
+    <!-- template for a quiz item entry -->
+    <!-- <div class=" w3-border w3-row w3-margin w3-padding-large w3-round"> 
+      <div class="w3-threequarter w3-padding"><span class="w3-text-gray w3-small"></span>Reiki Quiz  <span class="w3-text-gray w3-small"><br>@ 09:21 01/04/2021</span></div>
+      <div class="w3-quarter w3-row ">
+        <div class="w3-third w3-button w3-text-blue w3-hover-blue w3-hover-shadow w3-round"><span class="w3-text-white w3-small">copy link </span><i class="fas fa-link"></i></div>
+        <div class="w3-third w3-button w3-text-green w3-hover-green w3-hover-shadow w3-round"><span class="w3-text-white w3-small">run </span><i class="fas fa-play"></i></div>
+        <div class="w3-third w3-button w3-text-red w3-hover-red w3-hover-shadow w3-round"><span class="w3-text-white w3-small">delete </span><i class="fas fa-trash"></i></div>
+      </div>
+    </div>
+-->
+
+
+    <!-- empty list -->
+    
+
+	</div>
+
+</body>
+</html>
+

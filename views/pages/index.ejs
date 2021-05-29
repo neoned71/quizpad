@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>N71</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="google-signin-client_id" content="567112201060-i34emibvl8p17rrgh1trctlgvn8n2o19.apps.googleusercontent.com"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="js/main.js" defer ></script>
+</head>
+
+<body class=" w3-gray">
+
+  <nav class="w3-row w3-white w3-card ">
+    <div class="w3-half w3-text-blue w3-big  " style="">	
+      <h3 class="w3-margin">QUIZ<span class="w3-text-gray w3-small">pad</span></h3>
+    </div>
+    <div class="w3-quarter">
+      <p class="w3-font w3-center w3-margin w3-big"><span class="w3-text-gray w3-small">Hello</span> <%= name %></p>
+      
+    </div>
+
+    <div class="w3-quarter w3-text-cyan ">
+      <button class="w3-button w3-round w3-card w3-margin w3-right w3-blue" onclick="composeQuiz();">
+        <span class="w3-text-white w3-small">Add a</span> Quiz
+      </button>
+    </div>
+  </nav>
+
+  
+	<div class=" w3-text-gray w3-white  w3-round w3-border" style="width:80%;margin-left:auto;margin-right:auto;margin-top:2%">	
+    <h1 class="w3-margin">Your Quizes</h1>
+
+
+    <%
+    if(quizes && quizes.length>0)
+    { %>
+
+      <% quizes.forEach(function(q){%>
+
+        <div class=" w3-card w3-white w3-row w3-margin w3-padding-large w3-round" id='<%= q._id %>'> 
+          <div class="w3-threequarter w3-padding"><%= q.title %><span class="w3-text-gray w3-small"></span><span class="w3-text-gray w3-small"><br>@ <%= q.timestamp %></span></div>
+          <div class="w3-quarter w3-row ">
+            <div class="w3-third w3-button w3-text-blue w3-hover-blue w3-hover-shadow w3-round" onclick="copyy('<%= q._id %>')"><span class="w3-text-white w3-small" >copy link </span><i class="fas fa-link"></i></div>
+            <div class="w3-third w3-button w3-text-green w3-hover-green w3-hover-shadow w3-round" onclick="location.href='web/quiztime/<%= q._id %>'"><span class="w3-text-white w3-small">run </span><i class="fas fa-play"></i></div>
+            <div class="w3-third w3-button w3-text-red w3-hover-red w3-hover-shadow w3-round" onclick="deleteQuiz('<%= q._id %>')"><span class="w3-text-white w3-small">delete </span><i class="fas fa-trash"></i></div>
+          </div>
+        </div>
+
+
+
+        <%  
+      });
+    }
+      else{
+
+        %>
+      
+    <!-- template for a quiz item entry -->
+    <!-- <div class=" w3-border w3-row w3-margin w3-padding-large w3-round"> 
+      <div class="w3-threequarter w3-padding"><span class="w3-text-gray w3-small"></span>Reiki Quiz  <span class="w3-text-gray w3-small"><br>@ 09:21 01/04/2021</span></div>
+      <div class="w3-quarter w3-row ">
+        <div class="w3-third w3-button w3-text-blue w3-hover-blue w3-hover-shadow w3-round"><span class="w3-text-white w3-small">copy link </span><i class="fas fa-link"></i></div>
+        <div class="w3-third w3-button w3-text-green w3-hover-green w3-hover-shadow w3-round"><span class="w3-text-white w3-small">run </span><i class="fas fa-play"></i></div>
+        <div class="w3-third w3-button w3-text-red w3-hover-red w3-hover-shadow w3-round"><span class="w3-text-white w3-small">delete </span><i class="fas fa-trash"></i></div>
+      </div>
+    </div> -->
+
+    
+
+    
+
+    <!-- empty list -->
+    <div class="w3-center">
+      <p class="w3-center w3-round w3-text-gray w3-transparent">No quizes yet,<br>Please create a Quiz to get started!!</p>
+      <button class="w3-button w3-round w3-card w3-margin w3-blue" onclick="composeQuiz();">
+        <span class="w3-text-white w3-small">Add a</span> Quiz
+      </button>
+    </div>
+<%
+  }
+  %>
+
+	</div>
+  
+
+</body>
+</html>
+
